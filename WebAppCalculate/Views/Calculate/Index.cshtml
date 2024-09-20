@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Calculate Page</h1>
+    <p>@ViewBag.Message</p>
+  
+
+    <div>
+        <form asp-controller="Calculate" asp-action="index" >
+            <button onsubmit="power2">
+                <h1>Power number : </h1>
+            </button>
+            <button onsubmit="sum2">
+                <h1>Sum  number: </h1>
+            </button>
+            
+        
+
+        </form>
+    </div>
+
+
+
+
+</div>
+

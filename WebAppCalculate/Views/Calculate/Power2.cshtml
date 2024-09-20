@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Power Value";
+}
+
+
+
+
+@{
+    ViewData["Title"] = "Power Value";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Calculate Page</h1>
+    <p>@ViewBag.Message</p>
+
+
+    <div>
+        <form asp-controller="Calculate" asp-action="power2" method="post">
+            <h1>Power number : </h1>
+            <p>put number to calculate</p>
+            <input name="value1" id="lavue1" type="number" /><br><br><br>
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</div>
+
