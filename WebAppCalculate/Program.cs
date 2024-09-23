@@ -1,3 +1,4 @@
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Calculate}/{action=Index}/{id?}");
+    pattern: "{controller=Calculate}/{action=Home}/{id?}");
 
 app.Run();

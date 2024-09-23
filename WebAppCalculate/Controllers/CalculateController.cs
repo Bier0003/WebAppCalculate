@@ -1,51 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebAppCalculate.Controllers
+
+[Route("Calculate")]
+[ApiController]
+public class CalculateController : Controller
 {
-
-    [Route("[controller]")]
-    [ApiController]
-
-    public class CalculateController : Controller
+    [HttpGet("")]
+    public IActionResult Index()
     {
-        [HttpGet]
-        public IActionResult Index()
-        {
-            ViewBag.Message = "TestA";
-            return View();
-        }
+        ViewBag.Message = "TestA";
+        return View();
+    }
 
-        public IActionResult Power2()
-        {
-            return View();
-        }
+    [HttpGet("Power2")]
+    public IActionResult Power2([FromQuery] int value1)
+    {
+        int result = value1 * value1;
+        return Ok(new { result = result });
+    }
 
+    [HttpPost("Sum2")]
+    public IActionResult Sum2([FromBody] SumRequest request)
+    {
+        int result = request.Value2 + 2;
+        return Ok(new { sum = result });
+    }
 
+    [HttpGet("Power2/{value1}")]
+    public IActionResult Power2(int value1)
+    {
+        return Ok(value1 * value1);
+    }
 
-        //GET: Calculate/power2/
-        [HttpGet("power2/{value1}")]
-        public IActionResult Power2(int value1)
-        {
-           
-            return Ok(value1 * value1);
-          
-        }
-
-
-        //POST: Calculate/sum2/
-        [HttpPost("sum2/{value2}")]
-        public IActionResult sum2(int value2)
-        {
-            int result = value2 + 2;
-
-            ViewBag.Sumresult = result;
-
-
-            return Ok(new { sum = value2 + 2 });
-            return View();
-        }
-
-
+    [HttpPost("Sum2WithRoute/{value2}")]
+    public IActionResult Sum2WithRoute(int value2)
+    {
+        int result = value2 + 2;
+        return Ok(new { sum = result });
     }
 }
 
+public class SumRequest
+{
+    public int Value2 { get; set; }
+}
