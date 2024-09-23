@@ -15,25 +15,34 @@ namespace WebAppCalculate.Controllers
             return View();
         }
 
+        public IActionResult Power2()
+        {
+            return View();
+        }
+
+
+
         //GET: Calculate/power2/
         [HttpGet("power2/{value1}")]
-        public IActionResult Power2(int value)
+        public IActionResult Power2(int value1)
         {
-
-            return Ok(value * value);
+           
+            return Ok(value1 * value1);
+          
         }
 
 
         //POST: Calculate/sum2/
         [HttpPost("sum2/{value2}")]
-        public IActionResult sum2(int value)
+        public IActionResult sum2(int value2)
         {
-            int result = value + 2;
+            int result = value2 + 2;
 
             ViewBag.Sumresult = result;
 
 
-            return Ok(new { sum = value + 2 });
+            return Ok(new { sum = value2 + 2 });
+            return View();
         }
 
 
