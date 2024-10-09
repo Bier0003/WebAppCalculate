@@ -1,27 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Sum2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h3>Sum2 Calculation</h3>
+<form method="post" action="https://localhost:7007/sum2">
+    <label for="value2">Enter a number to add 2:</label>
+    <input type="number" name="Value2" id="value2" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-
-<div class="text-center">
-    <h1 class="display-4">Welcome Calculate Page</h1>
-    <p>@ViewBag.Message</p>
-
-    
-    <div>
-        <form asp-controller="Calculate" asp-action="Sum2" method="post">
-        <h1>Sum number : </h1>
-        <p>put number to calculate</p>
-        <input name ="value2" id="value2" type="number" /><br><br><br>
-        <div>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </div>
-        </form>
-    </div>
- 
-
-
-
-</div>
-
+@if (ViewBag.Result != null)
+{
+    <p>Sum2 Result: @ViewBag.Result</p>
+}

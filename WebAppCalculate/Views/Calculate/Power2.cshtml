@@ -1,37 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "index";
+    ViewData["Title"] = "Power2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Calculate Page</h1>
-    <p>@ViewBag.Message</p>
+<h3>Power2 Calculation</h3>
+<form method="post" action="https://localhost:7007/power2">
+    <label for="value1">Enter a number to power:</label>
+    <input type="number" name="Value1" id="value1" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
+@if (ViewBag.Result != null)
+{
+    <p>Power2 Result: @ViewBag.Result</p>
+}
 
-    <div>
-        <form asp-controller="Calculate" asp-action="power2" method="get">
-            <h1>Power number : </h1>
-            <label for="value1">put number to calculate</label>
-            <input name="value1" id="value1" type="number"  required /><br><br><br>
-            <div>
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-            </div>
-
-
-            @if (ViewBag.Result != null)
-            {
-                <h3>Result: @ViewBag.Result</h3>
-            }
-
-        </form>
-        
-    </div>
-
-</div>
-<script>
-    document.getEement("powerForm").addEventListenner("submit", function (event) {
-        event.preventDefaault();
-        var value = document.getElementById()
-    })
-</script>
